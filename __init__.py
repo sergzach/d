@@ -29,6 +29,7 @@ def patch_func(func_name):
                         break
         return inner
 
+    reload()
     globals()[func_name] = create_debug_func(
         get_cur_module()[func_name]
     )
@@ -50,6 +51,7 @@ def patch_cls(class_, method_name):
                         break
         return inner
 
+    reload()
     class_.__dict__[method_name] = create_debug_patched_method(
         get_cur_module()[method_name]
     )
