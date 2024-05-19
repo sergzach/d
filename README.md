@@ -79,6 +79,10 @@ def main():
     ...
 ```
 
+# Addiotional
+
+Possibly you can debug several modules simultaneously. Then define several `d_files.py` passing debugging modules (as for the one module in the example above).
+
 Debug in {paired to example.py} d_example.py -- the copy of function/methods in a repeating loop. Now you can change the function/method bodies in d_example.py without stopping a python process.
 
 Also you can stop on breakpoint in d_example.py in your IDE.
