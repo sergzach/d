@@ -1,6 +1,6 @@
 # The Goal
 
-To debug python processes changing function/method bodies without stopping an executing python process, so, to save your time because of possibly long operations of starting web server, **calling previous functions to reach the current debugging line.**
+To debug python processes changing function/method bodies without stopping an executing python process, so, to save your time because of possibly long operations of starting web server (etc.), **calling previous functions to reach the current debugging line.**
 
 
 # Usage
