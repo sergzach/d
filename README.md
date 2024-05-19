@@ -7,7 +7,7 @@ To debug python processes changing function/method bodies without stopping an ex
 
 Create a user module with copy of function bodies to debug.
 
-**Not need to have a special callback when method is not defined (when developing with d).** You may just update your `d_...py` file.
+**Not need to have a special callback when method is not defined (when developing with d).** You may just update `user_patch(...)` in your `d_...py` file.
 
 
 ```
