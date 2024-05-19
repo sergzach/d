@@ -3,16 +3,11 @@
 To debug python processes changing function/method bodies without stopping an executing python process, so, to save your time because of possibly long operations of starting web server (and so on), **not calling previous functions to reach the current debugging line.**
 
 
-# TODO
-
-Support `on_unknown(*, module, cls_name=None, fn_name, *args, **kwargs)` with repeating calling of the unknown function.
-
-Module can be reloaded by calling d.reload() in `on_unknown(...)` -- manually by a user.
-
-
 # Usage
 
 Create a user module with copy of function bodies to debug.
+
+Not need to have a special callback when method is not defined (when developing with d). You may just update your `d_...py` file.
 
 
 ```
