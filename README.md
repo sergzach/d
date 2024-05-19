@@ -85,4 +85,4 @@ Also you can stop on breakpoint in d_example.py in your IDE.
 
 # Addiotional
 
-Possibly you can debug several modules simultaneously. Then define several `d_files.py` passing debugging modules (as for the one module in the example above).
+Possibly you can debug several modules simultaneously. Then define several `d_<name_of_debugging_module>.py` passing debugging modules (as for the one module in the example above).
