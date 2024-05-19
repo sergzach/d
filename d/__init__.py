@@ -15,7 +15,7 @@ def patch_cls(
         class_name,
         method_name
 ):
-    def create_debug_patched_method():
+    def create_debug_patched():
         def inner(*args, **kwargs):
             while True:
                 try:
@@ -38,7 +38,38 @@ def patch_cls(
     setattr(
         cls_,
         method_name,
-        create_debug_patched_method()
+        create_debug_patched()
+    )
+
+
+def patch_fn(
+        *,
+        patching_module,
+        user_patching_module,
+        function_name
+):
+    def create_debug_patched():
+        def inner(*args, **kwargs):
+            while True:
+                try:
+                    getattr(user_patching_module, 'user_patch')(patching_module)
+                    getattr(user_patching_module, f'{function_name}')(*args, **kwargs)
+                except Exception as e:
+                    getattr(user_patching_module, 'on_exception')(e)
+                finally:
+                    if init.ask_repeat:
+                        ans = input('Do repeat (y/any for no)? ')
+                        if ans != 'y':
+                            print(f'Debugging of {function_name} is finished.')
+                            break
+        return inner
+
+    reload(user_patching_module)
+
+    setattr(
+        patching_module,
+        function_name,
+        create_debug_patched()
     )
 
 
