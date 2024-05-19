@@ -18,7 +18,7 @@ class TestClass:
         print(f'Replace the function in TestClass with {bold("d.")}')
 
 
-def foo(k):
+def foo2(k):
     print(k)
     print(f'Replace the global function with {bold("d.")}')
 
@@ -33,7 +33,7 @@ def main():
     test_class = TestClass()
     test_class.foo(25)
     test_class.foo(26)
-    #foo(26)
+    foo2(26)
 
 
 if __name__ == '__main__':
