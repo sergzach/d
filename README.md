@@ -5,7 +5,7 @@ To debug python processes changing function/method bodies without stopping an ex
 
 # TODO
 
-Support `on_unknown(*, module, cls_name=None, fn_name, *args, **kwargs)` with repeating (reloading module) of the call unknown function.
+Support `on_unknown(*, module, cls_name=None, fn_name, *args, **kwargs)` with repeating calling of the unknown function.
 
 Module can be reloaded by calling d.reload() in `on_unknown(...)` -- manually by a user.
 
