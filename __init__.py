@@ -13,7 +13,7 @@ def reload():
     importlib.reload(get_cur_module())
 
 
-def patch_func(func_name):
+def patch_func(patching_module, func_name):
     def create_debug_func(debug_func):
         def inner(*args, **kwargs):
             import pdb; pdb.set_trace()
@@ -31,29 +31,34 @@ def patch_func(func_name):
 
     reload()
     globals()[func_name] = create_debug_func(
-        get_cur_module()[func_name]
+        getattr(get_cur_module(), f'd_{func_name}')
     )
 
 
-def patch_cls(class_, method_name):
+def patch_cls(patching_module, class_name, method_name):
     def create_debug_patched_method(debug_method):
         def inner(*args, **kwargs):
-            import pdb; pdb.set_trace()
             while True:
                 try:
-                    return debug_method(*args, **kwargs)
+                    user_patch(patching_module)
+                    getattr(get_cur_module(), f'd_{method_name}')(*args, **kwargs)
                 except Exception as e:
-                    print('Error, probably repatch.')
-                    import pdb; pdb.set_trace()
+                    print('Exception, see in IDE!')
+                    on_exception(e)
                 finally:
-                    ans = input('Repeat (y/n)?')
-                    if ans == 'n':
-                        break
+                    input('Press any key to repeat...')
         return inner
 
     reload()
-    class_.__dict__[method_name] = create_debug_patched_method(
-        get_cur_module()[method_name]
+
+    cls_ = getattr(patching_module, class_name)
+
+    setattr(
+        cls_,
+        method_name,
+        create_debug_patched_method(
+            getattr(get_cur_module(), f'd_{method_name}')
+        )
     )
 
 
@@ -61,5 +66,20 @@ def print_file(filename):
     with open(filename, 'rb') as f:
         return f.read()
 
+# CHANGEABLE_PART
 
-### Place here your patching functions and use patch_func() or patch_cls().
+# CUSTOM PATCHERS:
+def user_patch(patching_module):
+    patch_cls(patching_module, 'TestClass', 'foo')
+
+# ON_EXCEPTION:
+def on_exception(e):
+    l = 4
+
+# DEBUGGING_FUNCTIONS:
+def d_foo(self, k):
+    print('The new version of k 240.')
+
+# ENTRYPOINT
+def init(patching_module):
+    user_patch(patching_module)
