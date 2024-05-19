@@ -74,6 +74,6 @@ def main():
     ...
 ```
 
-Debug in {paired to example.py} d_example.py -- the copy of function/methods in a repeating loop. Now you can change the function/method bodies in d_example.py without stopping executing python process.
+Debug in {paired to example.py} d_example.py -- the copy of function/methods in a repeating loop. Now you can change the function/method bodies in d_example.py without stopping a python process.
 
 Also you can stop on breakpoint in d_example.py in your IDE.
