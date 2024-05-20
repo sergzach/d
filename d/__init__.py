@@ -75,4 +75,5 @@ def patch_fn(
 
 def init(*, patching_module, user_patch_module, ask_repeat=True):
     init.ask_repeat = ask_repeat
+    reload(user_patch_module)
     getattr(user_patch_module, 'user_patch')(patching_module)
