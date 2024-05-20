@@ -6,7 +6,7 @@ To debug python processes changing function/method bodies without stopping an ex
 
 **Case 1.** If not all the functions are imported from your <d_example.py> patch module then check for execution errors when importing the <d_example.py> (for example, `ImportError`).
 
-**Case 2.** Decorators (now) may break the patch attempt (try implement defferred patching?).
+**Case 2.** Decorators (now) may break the patch attempt (try implement defferred/periodical patching?).
 
 # Usage
 
