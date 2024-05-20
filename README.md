@@ -2,16 +2,15 @@
 
 To debug python processes changing function/method bodies without stopping an executing python process, so, to save your time because of possibly long operations of starting web server (and so on), **not calling previous functions to reach the current debugging line.**
 
+# Troubleshooting
+
+Case 1. If not all the functions are imported from your <d_example.py> patch module then check for execution errors when importing the <d_example.py> (for example, `ImportError`).
 
 # Usage
 
 Create a user module with copy of function bodies to debug.
 
 **Not need to have a special callback when method is not defined (when developing with d).** You may just update `user_patch(...)` in your `d_...py` file.
-
-Troubleshooting
-
-Case 1. If not all the functions are imported from your <d_example.py> patch module then check for execution errors when importing the <d_example.py> (for example, `ImportError`).
 
 
 ```
