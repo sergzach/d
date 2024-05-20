@@ -8,6 +8,13 @@ To debug python processes changing function/method bodies without stopping an ex
 
 **Case 2.** Decorators (now) may break the patch attempt (try implement defferred/periodical patching?).
 
+Somehow create a copy with a function inner?
+```
+@pytest.fixture(scope="session", autouse=True)
+def fill_hash_models():
+    d_fill_hash_models()
+```
+
 # Usage
 
 Create a user module with copy of function bodies to debug.
