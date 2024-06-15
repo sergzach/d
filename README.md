@@ -1,3 +1,10 @@
+# TODO
+Like Watchman or StatReloader but only for declared currently functions.
+
+At the start - periodically check my own file, in some moment - functions from patching modules may be inavailable, but become available later.
+
+https://github.com/django/django/blob/main/django/utils/autoreload.py
+
 # The Goal
 
 To debug python processes changing function/method bodies without stopping an executing python process, so, to save your time because of possibly long operations of starting web server (and so on), **not calling previous functions to reach the current debugging line.**
