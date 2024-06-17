@@ -1,4 +1,4 @@
-# TODO
+# TODO?
 Like Watchman or StatReloader but only for declared currently functions. The idea - check changes in main (separated) thread, running source code in another thread (django_main_thread).
 
 At the start - periodically check my own file, in some moment - functions from patching modules may be inavailable, but become available later.
